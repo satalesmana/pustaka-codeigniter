@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" >Nama :</label>
                 <div class="col-sm-10">
-                    <input type="text" name="nama" value="<?php echo $member->nama; ?>" class="form-control"  placeholder="Enter Nama">
+                    <input type="text" name="nama" value="<?php echo $member->nama;  ?>" class="form-control"  placeholder="Enter Nama">
                 </div>
             </div>
 
