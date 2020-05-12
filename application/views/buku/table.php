@@ -20,7 +20,7 @@
 							'<button class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Edit</button>'); 
 					?>
 				</th>
-				<td><img src="<?php echo $row->gambar; ?>" width="300px"></td>
+				<td><img src="<?php echo $row->gambar; ?>" width="100px"></td>
 				<td><?php echo $row->judul; ?></td>
 				<td><?php echo $row->pengarang; ?></td>
     		</tr>

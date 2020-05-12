@@ -33,7 +33,7 @@ class Buku extends CI_Controller{
 		if(is_uploaded_file($_FILES['gambar']['tmp_name'])){
 			$config['upload_path']          = './upload/';
 			$config['allowed_types']        = 'gif|jpg|png';
-			$config['max_size']             = 8000;
+			$config['max_size']             = 2000;
 			//$config['max_width']            = 1024;
 			//$config['max_height']           = 768;
 			$this->load->library('upload', $config);
@@ -61,6 +61,7 @@ class Buku extends CI_Controller{
 			redirect('buku');
 		}
 	}
+
 
 	public function delete(){
 		$id = $this->uri->segment(3);

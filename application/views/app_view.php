@@ -83,7 +83,7 @@
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Order:</h6>
-          <?php echo anchor("request","Book Request",['class'=>'collapse-item']) ?>
+          <?php echo anchor("pinjam","Book Request",['class'=>'collapse-item']) ?>
           <?php echo anchor("return","Book Return",['class'=>'collapse-item']) ?>
         </div>
       </div>
