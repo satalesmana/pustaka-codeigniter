@@ -10,8 +10,16 @@ class Member extends CI_Controller{
 		$member = $this->Member_model->get();
 		
 		$content['data'] = $member;
-		$content['content'] = "member/table";
-		$this->load->view('app_view',$content);
+
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) 
+			&& strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+
+			echo json_encode($content);
+		}else{
+			$content['content'] = "member/table";
+			$this->load->view('app_view',$content);
+		}
+					
 	}
 
 	public function form(){

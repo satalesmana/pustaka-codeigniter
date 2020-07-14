@@ -8,9 +8,23 @@ class Buku extends CI_Controller{
     }
 
     function index(){
-		$content['data']	= $this->Buku_model->get();
-		$content['content'] = "buku/table";
-		$this->load->view('app_view',$content);
+		
+		$id = $this->input->get('id');
+		if($id !=''){
+			$content['data']	= $this->Buku_model->getById($id);
+		}else
+			$content['data']	= $this->Buku_model->get();
+
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) 
+			&& strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+
+			echo json_encode($content);
+		}else{
+			$content['content'] = "buku/table";
+			$this->load->view('app_view',$content);
+		}
+
+		
     }
 
     function form(){

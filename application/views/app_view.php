@@ -17,7 +17,14 @@
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('thems');?>/css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="<?php echo base_url('thems');?>/lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
+  <!-- Bootstrap core JavaScript-->
+  
+  <script src="<?php echo base_url('thems');?>/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url('thems');?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url('thems');?>/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="<?php echo base_url('thems');?>/vendor/jquery-easing/jquery.easing.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -369,12 +376,7 @@
   </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url('thems');?>/vendor/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url('thems');?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="<?php echo base_url('thems');?>/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="<?php echo base_url('thems');?>/js/sb-admin-2.min.js"></script>
