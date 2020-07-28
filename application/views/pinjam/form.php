@@ -177,11 +177,12 @@
                 type:'POST',
                 success:function(res){
                     alert(res.messages)
-                    $('#nama_peminjam').val('')
-                    $('#tglPinjam').val('')
-                    $('#tglKembali').val('')
-                    rowItem = [];
-                    $(this).showItem();
+                    window.location.href="<?php echo site_url('pinjam')?>";
+                    // $('#nama_peminjam').val('')
+                    // $('#tglPinjam').val('')
+                    // $('#tglKembali').val('')
+                    // rowItem = [];
+                    // $(this).showItem();
                     // let title = (res.status==true)?"Success":"Error";
                     // let icon = (res.status==true)?"success":"error";
                     // Swal.fire({

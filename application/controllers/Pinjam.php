@@ -12,6 +12,19 @@ class Pinjam extends CI_Controller{
 		$this->load->view('app_view',$content);
 	}
 	
+	public function getlist(){
+		$this->load->model('Peminjaman_model');
+
+		$result =[
+			"draw"=> $this->input->get('draw'),
+			"recordsTotal"=> 1,
+			"recordsFiltered"=> 1,
+			"data"=> $this->Peminjaman_model->get()
+		];
+
+		echo json_encode($result);
+	}
+
 	public function add(){
 		$this->load->library('Auto_number');
 		$this->load->model('Peminjaman_model');
@@ -49,10 +62,7 @@ class Pinjam extends CI_Controller{
 		]);
 	}
 
-	function tes_encript(){
-		$this->load->library('encrypt');
-		
-		echo $this->encrypt->encode('tessata');
-	}
+	
+	
 
 }

@@ -1,3 +1,4 @@
+<?php if($this->session->userdata('username')==''){ redirect('login/logout'); } ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('thems');?>/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url('thems');?>/lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
+  <link rel="stylesheet" href="<?php echo base_url();?>/lib/DataTables/datatables.css"/>
   <!-- Bootstrap core JavaScript-->
   
   <script src="<?php echo base_url('thems');?>/vendor/jquery/jquery.min.js"></script>
@@ -25,6 +27,7 @@
   <script src="<?php echo base_url('thems');?>/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="<?php echo base_url('thems');?>/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url();?>/lib/DataTables/datatables.js"></script>
 </head>
 
 <body id="page-top">
@@ -64,22 +67,24 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Data</span>
-      </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Member:</h6>
-          <?php echo anchor("member","List of Member",['class'=>'collapse-item']) ?>
-          <?php echo anchor("member/form","Form Of Member",['class'=>'collapse-item']) ?>
-          <h6 class="collapse-header">Book:</h6>
-          <?php echo anchor("buku","List of Book",['class'=>'collapse-item']) ?>
-          <?php echo anchor("buku/form","Form Of Book",['class'=>'collapse-item']) ?>
+    <?php if($this->session->userdata('level')==1){ ?>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Data</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Member:</h6>
+            <?php echo anchor("member","List of Member",['class'=>'collapse-item']) ?>
+            <?php echo anchor("member/form","Form Of Member",['class'=>'collapse-item']) ?>
+            <h6 class="collapse-header">Book:</h6>
+            <?php echo anchor("buku","List of Book",['class'=>'collapse-item']) ?>
+            <?php echo anchor("buku/form","Form Of Book",['class'=>'collapse-item']) ?>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    <?php } ?>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -91,7 +96,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Order:</h6>
           <?php echo anchor("pinjam","Book Request",['class'=>'collapse-item']) ?>
-          <?php echo anchor("return","Book Return",['class'=>'collapse-item']) ?>
+          <?php echo anchor("pengembalian","Book Return",['class'=>'collapse-item']) ?>
         </div>
       </div>
     </li>
@@ -290,7 +295,7 @@
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('username'); ?></span>
               <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
             </a>
             <!-- Dropdown - User Information -->
@@ -308,7 +313,7 @@
                 Activity Log
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+              <a class="dropdown-item" href="<?php echo site_url('login/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
               </a>
@@ -370,7 +375,7 @@
       <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
+        <a class="btn btn-primary" href="<?php echo site_url('login/logout'); ?>">Logout</a>
       </div>
     </div>
   </div>

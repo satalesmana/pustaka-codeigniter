@@ -14,6 +14,12 @@ class Peminjaman_model extends CI_Model{
         $this->db->insert_batch($this->table_detail,$data);
     }
 
+    public function get()
+    {
+        $res = $this->db->get('peminjaman_header');
+        return $res->result();
+    }
+
     function getLastId(){
         $peminjaman = $this->db->from($this->table_header)
             ->order_by('idpinjam', 'DESC')
